@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"phpcs.enable": true,
+		"phpcs.standard": "WordPress"
+	}
+}
