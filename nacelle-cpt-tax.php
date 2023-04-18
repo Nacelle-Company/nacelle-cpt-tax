@@ -3,7 +3,7 @@
 Plugin Name: Nacelle CPT & Tax
 Plugin URI: https://wp.tutsplus.com/
 Description: Creates custom post types and taxonomies for Nacelle.
-Version: 1.0
+Version: 1.1
 Author: Luke Carl Hartman
 Author URI: https://github.com/luukee
 License: GPLv2
@@ -353,6 +353,38 @@ class NacelleCreateCPTandTax {
 		);
 		register_taxonomy( 'writers', array( 'catalog' ), $args );
 
+			
+		/**
+		 * Taxonomy: Authors.
+		 */
+
+		$labels = array(
+			'name'          => __( 'Authors', 'custom-post-type-ui' ),
+			'singular_name' => __( 'Author', 'custom-post-type-ui' ),
+		);
+
+		$args = array(
+			'label'                 => __( 'Authors', 'custom-post-type-ui' ),
+			'labels'                => $labels,
+			'public'                => true,
+			'publicly_queryable'    => true,
+			'hierarchical'          => false,
+			'show_ui'               => true,
+			'show_in_menu'          => true,
+			'show_in_nav_menus'     => true,
+			'query_var'             => true,
+			'rewrite'               => array(
+				'slug'       => 'authors',
+				'with_front' => true,
+			),
+			'show_admin_column'     => true,
+			'show_in_rest'          => false,
+			'rest_base'             => 'authors',
+			'rest_controller_class' => 'WP_REST_Terms_Controller',
+			'show_in_quick_edit'    => false,
+		);
+		register_taxonomy( 'authors', array( 'catalog' ), $args );
+		
 	}
 }
 
